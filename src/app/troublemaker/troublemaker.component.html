@@ -1,0 +1,41 @@
+<!-- <p>
+    Troublemaker Name: <span [textContent]="troublemaker.name"></span> <br>
+    Location: {{ troublemaker.location }} <br>
+    Reported On: {{ troublemaker.date_added | date }} <br>
+    Status: <span *ngIf="troublemaker.resolved; then resolved else open"></span> <br>
+        <ng-template #open>OPEN</ng-template>
+        <ng-template #resolved>RESOLVED</ng-template>
+    <span id="button" class="d-grid gap-2 col-12">
+        <button id="show" class="btn btn-outline-primary">Show More</button>
+        <button id="edit" class="btn btn-outline-danger">Edit Status</button>
+    </span>
+
+</p> -->
+
+<div class="row">
+    <div class="location">
+        {{ troublemaker.location }}
+    </div>
+    <div class="name">
+        {{ troublemaker.name }}
+    </div>
+    <div class="date">
+        {{ troublemaker.date_added | date:"MMM d, y (h:mm a)" }}
+    </div>
+    <div class="status">
+        <span *ngIf="troublemaker.resolved; then resolved else open"></span>
+        <ng-template #open>OPEN</ng-template>
+        <ng-template #resolved>RESOLVED</ng-template>
+    </div>
+    <div class="more">
+        <button 
+        id="show" class="btn btn-outline-primary"
+        (click)="onView()"
+        >
+            Info
+        </button>
+    </div>
+    <div class="edit">
+        <button id="edit" class="btn btn-outline-danger" (click)="onEdit()" >Edit</button>
+    </div>
+</div>

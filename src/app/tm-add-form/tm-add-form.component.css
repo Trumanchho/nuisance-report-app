@@ -1,0 +1,60 @@
+main {
+    margin-top: 40px;
+    display: flex;
+    flex-direction: column;
+    width: 80vw;
+}
+
+app-map {
+    z-index: 2;
+    width: 33vw;
+    left: 33vw;
+    height: 50vh;
+    position: fixed;
+    top: 25vh;
+}
+
+legend {
+    text-align: center;
+}
+
+label {
+    font-weight: bold;
+}
+
+form {
+    border-radius: 10px;
+    border: 1px solid black;
+    padding: 20px;
+    margin-top: 20px;
+    width: 30vw;
+}
+
+#tint {
+    z-index: 1;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    width: 100vw;
+    height: 100vh;
+    background-color: black;
+    opacity: 60%;
+}
+
+#done {
+    margin-top: 10px;
+    position: fixed;
+    z-index: 2;
+    top: 75vh;
+    left: 33vw;
+}
+
+#form-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+#map-container {
+    width: 100%;
+}

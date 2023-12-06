@@ -1,0 +1,42 @@
+<main>
+    <div id="form-container">
+        <form
+            [formGroup]="form"
+            (ngSubmit)="onSubmit(form.value)"
+        >
+        <fieldset class="d-grid gap-2 col-12">
+            <legend>Report Troublemaker</legend>
+            <label for="reporter-name">Your Name</label>
+            <input type="text" name="reporter-name" formControlName="reporter_name" placeholder="Your Name">
+            <label for="reporter-phone">Your Phone Number</label>
+            <input type="number" name="reporter-phone" formControlName="reporter_phone" placeholder="10-digits (i.e. 6041231234)">
+            <label for="tm-name">Name of Troublemaker</label>
+            <input type="text" name="tm-name" formControlName="tm_name" placeholder="Troublemaker Name">
+            <label for="locations">Select Location</label>
+            <select name="locations" id="location-select" formControlName="location" (change)="onSelectChange($event)">
+                <option *ngFor="let loc of locations" value="{{loc.name}}">{{ loc.name }}</option>
+                <option value="add-new">--Choose on Map--</option>
+            </select>
+            <label *ngIf="!hideLocation" for="location">Location Name</label>
+            <input *ngIf="!hideLocation" type="text" name="location" formControlName="tm_location" placeholder="Location Name" value="{{ this.ls.currentLocName }}" >
+            <span>LAT: {{ this.ls.clickedLat }}</span>
+            <span>LONG: {{ this.ls.clickedLong }}</span>
+            <label for="image">Troublemaker's Image</label>
+            <input type="text" name="image" formControlName="tm_image_link" placeholder="Enter Image URL">
+            <label for="extra">Extra Info</label>
+            <input type="text" name="extra" formControlName="extra_info" placeholder="Extra Info">
+            <button 
+                class="btn btn-outline-danger"
+                [disabled]="!form.valid"
+            >
+                Report
+            </button>
+        </fieldset>
+        </form>
+    </div>
+    <div *ngIf="!hideMap" id="tint"></div>
+    <app-map *ngIf="!hideMap"></app-map>
+    <button *ngIf="!hideMap" id="done" class="btn btn-light"
+        (click)="toggleMap()"
+    >Done</button>
+</main>

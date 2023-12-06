@@ -1,0 +1,26 @@
+<app-map></app-map>
+<div id="actions">
+    <button class="btn btn-danger" routerLink="/troublemakers/add">Create Nuisance Report</button>
+    <div>
+        Search: <input type="text" [(ngModel)]="query" placeholder="Troublemaker Name">
+    </div>
+</div>
+
+<div id="header">
+    <div class="location"><b><a (click)="sortLocation()">Location</a></b></div>
+    <div class="name"><b><a (click)="sortName()">Name</a></b></div>
+    <div class="date"><b><a (click)="sortDate()">Time Reported</a></b></div>
+    <div class="status"><b><a (click)="sortStatus()">Status</a></b></div>
+</div>
+
+
+<div *ngIf="showList">
+    <app-troublemaker
+    *ngFor="let tm of troublemakers | search:query"
+    [troublemaker]="tm"
+    ></app-troublemaker>
+</div>
+
+
+
+

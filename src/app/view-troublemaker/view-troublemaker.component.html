@@ -1,0 +1,18 @@
+<div class="info-card">
+    <div class="picture-box">
+        <img src="{{ troublemaker.image_link }}" alt="troublemaker-photo">
+    </div>
+    <div class="info">
+        <b>Troublemaker's Name: </b> {{ troublemaker.name }} <br>
+        <b>Location: </b> {{ troublemaker.location }} <br>
+        <b>Reported by: </b> {{ troublemaker.reportedBy }} {{ troublemaker.phone_num | phoneNumber }}<br>
+        <b>Time Reported: </b> {{ troublemaker.date_added | date: "MMM d, y (h:mm a)" }} <br>
+        <b>Status: </b> <span *ngIf="troublemaker.resolved; then resolved else open "></span> <br>
+        <ng-template #open>OPEN</ng-template>
+        <ng-template #resolved>RESOLVED</ng-template>
+        <b>Extra Info: </b> {{ troublemaker.extra_info }}
+    </div>
+</div>
+<button class="btn btn-link"
+    routerLink="/troublemakers"
+>Back to Main</button>
