@@ -16,6 +16,8 @@ import { EditTroublemakerComponent } from './edit-troublemaker/edit-troublemaker
 import { HttpClientModule } from '@angular/common/http';
 import { PhoneNumberPipe } from './phone-number.pipe';
 
+import { HashLocationStrategy, LocationStrategy } from '@angular/common';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -35,7 +37,9 @@ import { PhoneNumberPipe } from './phone-number.pipe';
     RoutingModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [
+    { provide: LocationStrategy, useClass: HashLocationStrategy }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
