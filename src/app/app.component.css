@@ -1,6 +1,12 @@
 
 h1 { 
     text-align: center; 
-    margin: 20px;
+    margin: 0px;
     user-select: none;
 }
+
+header {
+    padding: 20px;
+    margin-bottom: 20px;
+}
+

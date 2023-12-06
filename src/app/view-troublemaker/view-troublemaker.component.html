@@ -11,10 +11,11 @@
             <b>Status: </b> <span *ngIf="troublemaker.resolved; then resolved else open "></span> <br>
             <ng-template #open>OPEN</ng-template>
             <ng-template #resolved>RESOLVED</ng-template>
-            <b>Extra Info: </b> {{ troublemaker.extra_info }}
+            <b>Extra Info: </b> {{ troublemaker.extra_info }} 
         </div>
+
     </div>
 </main>
-<button class="btn btn-link"
+<button class="btn btn-primary"
     routerLink="/troublemakers"
 >Back to Main</button>
